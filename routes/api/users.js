@@ -48,7 +48,13 @@ router.post("/register", (req, res) => {
           newUser.password = hash;
           newUser
             .save()
-            .then(user => res.json(user))
+            .then(user =>
+              res.json({
+                name: user.name,
+                avatar: user.avatar,
+                email: user.email
+              })
+            )
             .catch(err => console.log(err));
         });
       });

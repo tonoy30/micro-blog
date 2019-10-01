@@ -1,14 +1,15 @@
 {
   "name": "WebTechProject",
   "version": "1.0.0",
-  "description": "pprojet for web technology class",
+  "description": "project for web technology class",
   "main": "server.js",
   "author": "tonoy",
   "license": "MIT",
-  "private": null,
+  "private": false,
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "concurrently": "^4.1.2",
     "express": "^4.17.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
@@ -21,7 +22,10 @@
     "nodemon": "^1.19.2"
   },
   "scripts": {
+    "client-install": "yarn install --prefix fontend",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "fontend": "cd fontend && yarn start",
+    "dev": "concurrently \"yarn server\" \"yarn fontend\""
   }
 }
