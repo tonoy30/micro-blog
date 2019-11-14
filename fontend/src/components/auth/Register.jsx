@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import classnames from "classnames";
 import { connect } from "react-redux";
 import { registerUser } from "./../../actions/auth";
-import TextFieldGroup from "../../common/TextFiledGroup";
+import TextFieldGroup from "../../common/TextFieldGroup";
 
 class Register extends Component {
   state = {
@@ -43,7 +42,7 @@ class Register extends Component {
     const { errors } = this.state;
     //const { user } = this.props.auth;
     return (
-      <div className="register">
+      <div className="register" style={{ minHeight: "73vh" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">

@@ -111,6 +111,9 @@ const ProfileSchema = new Schema({
     },
     stackoverflow: {
       type: String
+    },
+    twitter: {
+      type: String
     }
   },
   date: {

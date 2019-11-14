@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import classnames from "classnames";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/auth";
-import TextFieldGroup from "../../common/TextFiledGroup";
+import TextFieldGroup from "../../common/TextFieldGroup";
 
 class Login extends Component {
   state = {
@@ -40,7 +39,7 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div className="login min-height">
+      <div className="login" style={{ minHeight: "73vh" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">

@@ -1,21 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import jwt_decode from "jwt-decode";
 
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/auth";
+import { clearCurrentProfile } from "./actions/profiles";
+import { store } from "./store";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import { store } from "./store";
+import DashBoard from "./components/dashboard/DashBoard";
+import CreateProfile from "./components/create-profile/CreateProfile";
+import EditProfile from "./components/edit-profile/EditProfile";
 
 import "./App.css";
-import { decode } from "querystring";
-
+import PrivateRoute from "./common/PrivateRoute";
 // Check for token and auth in whole site
 if (localStorage.jwtToken) {
   // set the auth token header auth
@@ -28,7 +31,8 @@ if (localStorage.jwtToken) {
   const currentTime = Date.now() / 1000;
   if (decoded.exp < currentTime) {
     store.dispatch(logoutUser());
-    //TODO : clear current user
+    // clear current user
+    store.dispatch(clearCurrentProfile());
     // Redirect to login
     window.location.href = "/login";
   }
@@ -39,9 +43,22 @@ const App = () => (
       <div className="App">
         <Navbar />
         <Route exact path="/" component={Landing} />
-        <div className="container full-page">
+        <div className="container">
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Switch>
+            <PrivateRoute exact path="/dashboard" component={DashBoard} />
+          </Switch>
+          <Switch>
+            <PrivateRoute
+              exact
+              path="/create-profile"
+              component={CreateProfile}
+            />
+          </Switch>
+          <Switch>
+            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+          </Switch>
         </div>
         <Footer />
       </div>

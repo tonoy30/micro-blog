@@ -37,6 +37,3 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
-.full-page {
-  min-height: 73vh;
-}

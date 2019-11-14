@@ -39,7 +39,6 @@ TextFieldGroup.propTypes = {
   error: PropTypes.string,
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
   disabled: PropTypes.string
 };
 TextFieldGroup.defaultProps = {
