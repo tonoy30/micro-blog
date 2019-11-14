@@ -16,6 +16,10 @@ import Login from "./components/auth/Login";
 import DashBoard from "./components/dashboard/DashBoard";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
+import AddEducation from "./components/credentials/AddEducation";
+import AddExperience from "./components/credentials/AddExperience";
+import Post from "./components/posts/Post";
+import PostDetail from "./components/posts/PostDetail";
 
 import "./App.css";
 import PrivateRoute from "./common/PrivateRoute";
@@ -58,6 +62,26 @@ const App = () => (
           </Switch>
           <Switch>
             <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+          </Switch>
+          <Switch>
+            <PrivateRoute
+              exact
+              path="/add-education"
+              component={AddEducation}
+            />
+          </Switch>
+          <Switch>
+            <PrivateRoute
+              exact
+              path="/add-experience"
+              component={AddExperience}
+            />
+          </Switch>
+          <Switch>
+            <PrivateRoute exact path="/feed" component={Post} />
+          </Switch>
+          <Switch>
+            <PrivateRoute exact path="/post/:id" component={PostDetail} />
           </Switch>
         </div>
         <Footer />

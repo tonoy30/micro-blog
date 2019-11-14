@@ -80,7 +80,7 @@ class EditProfile extends Component {
         website: profile.website,
         location: profile.location,
         status: profile.status,
-        skills: profile.skills,
+        skills: skillsCSV,
         github_user_name: profile.github_user_name,
         bio: profile.bio,
         twitter: profile.twitter,
@@ -290,7 +290,7 @@ class EditProfile extends Component {
                 <input
                   type="submit"
                   className="btn btn-info btn-block mt-4"
-                  value="Submit"
+                  value="Update"
                 />
               </form>
             </div>
