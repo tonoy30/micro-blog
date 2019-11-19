@@ -71,9 +71,9 @@ class Navbar extends React.Component {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto ">
               <li className="nav-item">
-                <Link className="nav-link disabled" to="/profiles">
+                {/* <Link className="nav-link is-disabled" to="/profiles">
                   Developers
-                </Link>
+                </Link> */}
               </li>
             </ul>
             {isAuthenticated ? authLinks : guestLinks}
@@ -90,7 +90,6 @@ Navbar.propsTypes = {
 const mapStateToProps = state => ({
   auth: state.auth
 });
-export default connect(
-  mapStateToProps,
-  { logoutUser, clearCurrentProfile }
-)(Navbar);
+export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(
+  Navbar
+);
