@@ -30,7 +30,7 @@ class Register extends Component {
   };
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/feed");
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -48,7 +48,7 @@ class Register extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">
-                Create your DevConnector account
+                Create your Contentdrips account
               </p>
               <form noValidate onSubmit={this.onSubmit}>
                 <TextFieldGroup
@@ -103,7 +103,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { registerUser }
-)(withRouter(Register));
+export default connect(mapStateToProps, { registerUser })(withRouter(Register));

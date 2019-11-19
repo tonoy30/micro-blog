@@ -254,7 +254,7 @@ class EditProfile extends Component {
                   value={this.state.location}
                   onChange={this.onChange}
                   error={errors.location}
-                  info="City or city & state suggested (eg. Boston, MA)"
+                  info="City or city & state suggested (eg. Dhaka, Sylhet)"
                 />
                 <TextFieldGroup
                   placeholder="Github User name"
@@ -310,7 +310,6 @@ const mapStateToProps = state => ({
   profile: state.profiles,
   errors: state.errors
 });
-export default connect(
-  mapStateToProps,
-  { createProfile, getCurrentProfile }
-)(withRouter(EditProfile));
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  withRouter(EditProfile)
+);
