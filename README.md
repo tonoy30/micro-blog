@@ -1,2 +1,2 @@
-# Web-Tech-Project
+# Micro Blog
 Project for Web Technology class
