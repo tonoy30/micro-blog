@@ -1,2 +1,2 @@
 # Micro Blog
-Project for Web Technology class
+A micro blogging application build using MERN stack
